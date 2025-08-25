@@ -1,45 +1,57 @@
+/* General */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
+
 body {
-  font-family: 'Segoe UI', sans-serif;
+   font-family: 'Segoe UI', sans-serif;
   line-height: 1.6;
   background-color:whitesmoke;
   color: #222;
   overflow-x: hidden;
 }
+
 .homepage{
   min-height: 100vh;
   position: relative;
 }
 
 
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: rgb(21, 20, 20);
-  padding: 10px 20px;
-  backdrop-filter: blur(6px);
-  width: 100%;
-  z-index: 1000;
-  transition: all 0.3s ease;
-}
-
-/* .logo h2 {
+/* section {
+  padding: 80px 20px;
+  min-height: 100vh;
+} */
+.logo h2 {
   color: white;
 }
 
 .logo small {
   color: rgb(71, 68, 68);
-} */
- 
- .navbar ul {
+}
+
+/* Navbar */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(17, 16, 16, 0.95);
+  color: #fff;
+  padding: 0 20px;
+  z-index: 1000;
+  transition: all 0.3s ease;
+}
+
+ /* .navbar ul {
   list-style: none;
   display: flex;
-} 
+}  */
 
 ul li a {
   text-decoration: none;
@@ -68,105 +80,31 @@ color: blue;
     .navbar ul li a:hover::after {
       width: 100%;
     }
- 
- .hamburger {
-  display: none;
-  font-size: 28px;
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.nav-links li {
+  display: inline;
+}
+
+.nav-links a {
   color: white;
-  cursor: pointer;
-  transition: transform 0.3s ease;
-
-} 
-
-/* Responsive styles */
-
- @media (max-width: 768px) {
-      .navbar ul {
-        display: none;
-      }
-
-      .hamburger {
-        display: block;
-      }
-
-       #navLinks {
-        display: none;
-        flex-direction: column;
-        background: #444;
-        position: absolute;
-        top: 60px;
-        right: 20px;
-        padding: 10px;
-      }
-
-      .hero1 h1 {
-        font-size: 2.5rem;
-      }
-
-      .hero1 p {
-        font-size: 1.1rem;
-      }
-
-      .navbar {
-        padding: 1rem 3%;
-      }
-
-      .services-section {
-        padding: 3rem 3%;
-      }
-
-      .service-boxes {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .hero1 h1 {
-        font-size: 2rem;
-      }
-
-      .popup-content {
-        padding: 1.5rem;
-      }
-    }
-
-    /* Popup Hidden by Default */
-/* #popup {
-  display: none;
+  text-decoration: none;
+  font-weight: bold;
 }
-#popup.active {
-  display: block;
-} */
 
-/* Mobile Menu Hidden by Default */
-/* #navLinks {
-  display: none;
-}
-#navLinks.active {
-  display: flex;  
-  flex-direction: row;
-}  */
-
-
-.hamburger {
-    display: none;
-    cursor: pointer;
-    transition: transform 0.3s ease;
-    color: white;
-  }
-
-  .hamburger:hover{
-    transform: scale(1.1);
-  }
-
-
-.hero1 {
+.hero {
    background: url('chef-restaurant-kitchen.jpg') center/cover no-repeat;
      height: 500px;
       position: relative;
     
 }
-.hero1 .overlay {
+
+.hero .overlay {
       background-color: rgba(0, 0, 0, 0.6);
       color: white;
       min-height: 100%;
@@ -178,16 +116,16 @@ color: blue;
       text-align: center;
     }
 
-
-.hero1 h1 {
+    .hero h1 {
   font-size: 2.5rem;
   margin-bottom: 10px;
 }
-.hero1 p {
+.hero p {
   font-size: 1.2rem;
   margin-bottom: 20px;
   font-family: Georgia, 'Times New Roman', Times, serif;
 }
+
 .hero-buttons .btn {
   padding: 12px 20px;
   margin: 10px;
@@ -196,7 +134,6 @@ color: blue;
   text-decoration: none;
   font-weight: bold;
 }
-
 
 #openPopup {
   background-color: #007f4d;
@@ -218,21 +155,6 @@ button#openPopup:hover {
   box-shadow: 0 8px 25px rgba(255, 107, 107, 0.6); 
 }
 
-/* Popup overlay */
-.popup-overlay {
-  display: none; /* hidden by default */
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.7);
-  justify-content: center;
-  align-items: center;
-  z-index: 2000;
-}
-
-/* Popup content box */
 .popup-content {
   background: rgb(217, 212, 212);
   padding: 30px;
@@ -254,7 +176,7 @@ button#openPopup:hover {
   color: #007f4d;
 }
 
- .popup-menu {
+.popup-menu {
   list-style: none;
   margin-bottom: 2rem;
  }
@@ -268,7 +190,7 @@ button#openPopup:hover {
    transition: transform 0.3s ease;
     }
 
-   .popup-menu li:hover {
+    .popup-menu li:hover {
     transform: translateX(5px);
     }
 
@@ -292,14 +214,85 @@ button#openPopup:hover {
       color: #764ba2;
     }
 
-
-.close-btn {
+    .close-btn {
   position: absolute;
   top: 10px;
   right: 15px;
   font-size: 24px;
   color: #333;
   cursor: pointer;
+}
+
+
+
+/* Hamburger */
+.hamburger {
+  display: none;
+  font-size: 24px;
+  cursor: pointer;
+  margin-left: auto;
+}
+
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    right: 20px;
+    top: 60px;
+    background: #111;
+    width: 200px;
+    padding: 10px;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .hamburger {
+    display: block;
+  }
+}
+
+/* Popup */
+.popup {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.7);
+  justify-content: center;
+  align-items: center;
+}
+
+.popup.active {
+  display: flex;
+}
+
+.popup-content {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  position: relative;
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+/* Services */
+.service-box {
+  background: #eee;
+  margin: 10px;
+  padding: 20px;
+  display: inline-block;
+  transition: transform 0.3s ease;
 }
 
 .services-section {
@@ -330,9 +323,7 @@ button#openPopup:hover {
 }
 
 
-/* ///Abouthomepage/////////////////////////
-/////////////////////////////////////////
-/////////////////////////////////////////////////// */
+/* ............About ............. */
 
 * {
   margin: 0;
@@ -372,10 +363,10 @@ body {
   color: rgb(71, 68, 68);
 }
  
- .navbar ul {
+ /* .navbar ul {
   list-style: none;
   display: flex;
-} 
+}  */
 
 ul li a {
   text-decoration: none;
@@ -405,87 +396,13 @@ color: blue;
       width: 100%;
     }
 
-/* .hamburger { */
-  /* display: none; */
-  /* font-size: 28px;
-  color: white;
-  cursor: pointer;
-} */
-
-/* Responsive styles */
-
- @media (max-width: 768px) {
-      .navbar ul {
-        display: none;
-      }
-
-      .hamburger {
-        display: ;
-      }
-
-      .hero h1 {
-        font-size: 2.5rem;
-      }
-
-      .hero p {
-        font-size: 1.1rem;
-      }
-
-      .navbar {
-        padding: 1rem 3%;
-      }
-
-      .services-section {
-        padding: 3rem 3%;
-      }
-
-      .service-boxes {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .hero h1 {
-        font-size: 2rem;
-      }
-
-      .popup-content {
-        padding: 1.5rem;
-      }
-    }
-
-/* .hamburger1 { */
-    /* display: none; */
-    /* cursor: pointer;
-    transition: transform 0.3s ease;
-    color: white; */
-  }
-
-  /* .hamburger:hover{
-    transform: scale(1.1);
-  } */
-
-  
-    .hamburger {
-      display: none;
-      font-size: 1.5rem;
-      cursor: pointer;
-      color: #333;
-      transition: transform 0.3s ease;
-    }
-
-    .hamburger:hover {
-      transform: scale(1.1);
-    }
-
-
-.hero {
+    .hero2 {
    background: url('tbazpotos.jpeg') center/cover no-repeat;
      height: 500px;
       position: relative;
     
 }
-.hero .overlay {
+.hero2 .overlay {
       background-color: rgba(0, 0, 0, 0.6);
       color: white;
       min-height: 100%;
@@ -498,16 +415,16 @@ color: blue;
     }
 
 
-.hero h1 {
+.hero2 h1 {
   font-size: 2.5rem;
   margin-bottom: 10px;
 }
-.hero p {
+.hero2 p {
   font-size: 1.2rem;
   margin-bottom: 20px;
   font-family: Georgia, 'Times New Roman', Times, serif;
 }
-.hero-buttons .btn {
+.hero2-buttons .btn {
   padding: 12px 20px;
   margin: 10px;
   border: none;
@@ -538,10 +455,8 @@ button#openPopup:hover {
   background-color: #005f3a;
   animation: none;
   box-shadow: 0 8px 25px rgba(255, 107, 107, 0.6);
-
-
-  
 }
+
 
 /* Popup overlay */
 .popup-overlay {
@@ -707,220 +622,95 @@ button#openPopup:hover {
       text-align: center;
     }
 
-    .cta-btn {
-      display: inline-block;
-      background: linear-gradient(45deg, #667eea, #764ba2);
-      color: white;
-      padding: 1rem 2rem;
-      text-decoration: none;
-      border-radius: 50px;
-      font-size: 1.1rem;
-      font-weight: 600;
-      transition: all 0.3s ease;
-      box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
-      margin: 2rem auto;
-      display: block;
-      width: fit-content;
-    }
 
-    .cta-btn:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 8px 25px rgba(102, 126, 234, 0.6);
-    }
 
-    .about-content p:last-of-type {
-      background: linear-gradient(45deg, #e8f5e8, #f0f8ff);
-      border-left: 4px solid #4ecdc4;
-      font-weight: 500;
-    }
+/* 
+...........Services..............
+................................. */
 
-    @media (max-width: 768px) {
-      .navbar ul {
-        position: fixed;
-        top: 80px;
-        left: -100%;
-        width: 100%;
-        height: calc(100vh - 80px);
-        background: rgba(255, 255, 255, 0.98);
-        flex-direction: column;
-        justify-content: flex-start;
-        align-items: center;
-        padding-top: 2rem;
-        transition: left 0.3s ease;
-      }
-
-      .navbar ul.active {
-        left: 0;
-      }
-
-      .hamburger {
-        display: block;
-      }
-
-      .hero h1 {
-        font-size: 2.5rem;
-      }
-
-      .hero h2 {
-        font-size: 1.1rem;
-      }
-
-      .navbar {
-        padding: 1rem 3%;
-      }
-
-      .about-content {
-        padding: 3rem 3%;
-      }
-
-      .values-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .about-content h2 {
-        font-size: 2rem;
-      }
-
-      .about-content p {
-        font-size: 1.1rem;
-        padding: 1.5rem;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .hero h1 {
-        font-size: 2rem;
-      }
-
-      .hero h2 {
-        font-size: 1rem;
-      }
-
-      .popup-content {
-        padding: 1.5rem;
-      }
-
-      .about-content h2 {
-        font-size: 1.8rem;
-      }
-    }
-
-    /* ////////////SERVICE PAGE//////////
-    ////////////////////////////////// */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-
 body {
-      font-family: 'Segoe UI', sans-serif;
-      line-height: 1.6;
-      background-color: #fff;
-      color: #222;
-      margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  line-height: 1.6;
+  background-color:whitesmoke;
+  color: #222;
+  overflow-x: hidden;
+}
+.homepage{
+  min-height: 100vh;
+  position: relative;
+}
+
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgb(21, 20, 20);
+  padding: 10px 20px;
+  backdrop-filter: blur(6px);
+  width: 100%;
+  z-index: 1000;
+  transition: all 0.3s ease;
+}
+
+
+
+ul li a {
+  text-decoration: none;
+  color: white;
+  margin-left: 20px;
+  transition: color 0.3s ease;
+  position: relative;
+}
+
+ul li a:hover {
+color: blue;
+  transform: translateY(-2px);
+}
+
+.navbar ul li a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(90deg, red, #764ba2);
+      transition: width 0.3s ease;
     }
-    .navbar{
-    display: flex;
-    justify-content: center;
-    justify-content: space-around;
-    background-color: rgb(21, 20, 20);
-    padding: 0px;
-}
- small{
-    color:rgb(71, 68, 68);   
+
+    .navbar ul li a:hover::after {
+      width: 100%;
+    }
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
 }
 
-ul ,a{
-    text-decoration: none;
-    color: #423e3e;
-    margin-top: 6px;
-    margin-right: 1rem;
-}
- span a:hover{
-    color: green;
+.nav-links li {
+  display: inline;
 }
 
-    .hero.small-hero {
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.hero.small-hero {
       background: url('kitchen-business.jpg') center/cover no-repeat;
       height: 500px;
       position: relative;
     }
-    .overlay {
-      background-color: rgba(0, 0, 0, 0.6);
-      color: white;
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      padding-top: 60px;
-      text-align: center;
-    }
-    .overlay h1 {
-      font-size: 2.2rem;
-    }
-    .overlay p{
-      font-family: cursive;
-    }
 
-button#openPopup {
-  background-color: #007f4d;
-  color: white;
-  padding: 12px 20px;
-  border: none;
-  border-radius: 5px;
-  font-size: 16px;
-  cursor: pointer;
-}
-
-button#openPopup:hover {
-  background-color: #005f3a;
-}
-
-/* Popup overlay */
-.popup-overlay {
-  display: none; /* hidden by default */
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.7);
-  justify-content: center;
-  align-items: center;
-  z-index: 9999;
-}
-
-/* Popup content box */
-.popup-content {
-  background: rgb(239, 226, 226);
-  padding: 30px;
-  border-radius: 8px;
-  width: 90%;
-  max-width: 400px;
-  text-align: left;
-  position: relative;
-}
-
-.popup-content h2, .popup-content h3 {
-  color: #007f4d;
-}
-
-.popup-content ul {
-  padding-left: 20px;
-}
-
-.close-btn {
-  position: absolute;
-  top: 10px;
-  right: 15px;
-  font-size: 24px;
-  color: #333;
-  cursor: pointer;
-}
-
-
+    
     .services-page {
       padding: 50px 2px;
       max-width: 1100px;
@@ -965,12 +755,11 @@ button#openPopup:hover {
       font-weight: bold;
     }
 
-    /* /////////////CONTACTPAGE//
-    /////////////////////////////// */
 
+    /* ...........CONTACT........
+    ......................... */
 
-
-       * {
+          * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -982,18 +771,30 @@ body {
   color: #222;
 }
 
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: rgb(21, 20, 20);
-  padding: 10px 20px;
-  backdrop-filter: blur(6px);
-  width: 100%;
-  z-index: 1000;
-
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
+body {
+   font-family: 'Segoe UI', sans-serif;
+  line-height: 1.6;
+  background-color:whitesmoke;
+  color: #222;
+  overflow-x: hidden;
+}
+
+.homepage{
+  min-height: 100vh;
+  position: relative;
+}
+
+
+/* section {
+  padding: 80px 20px;
+  min-height: 100vh;
+} */
 .logo h2 {
   color: white;
 }
@@ -1001,7 +802,24 @@ body {
 .logo small {
   color: rgb(71, 68, 68);
 }
- 
+
+/* Navbar */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(17, 16, 16, 0.95);
+  color: #fff;
+  padding: 0 20px;
+  z-index: 1000;
+  transition: all 0.3s ease;
+}
+
  /* .navbar ul {
   list-style: none;
   display: flex;
@@ -1011,7 +829,7 @@ ul li a {
   text-decoration: none;
   color: white;
   margin-left: 20px;
-  transition: color 0.3s;
+  transition: color 0.3s ease;
   position: relative;
 }
 
@@ -1035,22 +853,32 @@ color: blue;
       width: 100%;
     }
 
-   body {
-      font-family: 'Segoe UI', sans-serif;
-      margin: 0;
-      background-color: #fff;
-      color: #222;
-    }
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
 
-    .hero.contact-hero {
+.nav-links li {
+  display: inline;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+     .hero.contact-hero {
       background: url('contact\ image.jpg') center/cover no-repeat;
       height: 500px;
       position: relative;
     }
 
+    
     .hero-overlay {
-      background-color: rgba(0, 0, 0, 0.6);
-      color: white;
+      background-color: rgb(0, 0, 0);
+      color: rgb(122, 114, 114);
       height: 100%;
       display: flex;
       flex-direction: column;
@@ -1058,66 +886,15 @@ color: blue;
       align-items: center;
       text-align: center;
       padding-top: 20px;
+      background: url('contact\ image.jpg') center/cover no-repeat;
+      height: 500px;
+      position: relative;
+
+
+
     }
 
-    button#openPopup {
-  background-color: #007f4d;
-  color: white;
-  padding: 12px 20px;
-  border: none;
-  border-radius: 5px;
-  font-size: 16px;
-  cursor: pointer;
-}
-
-button#openPopup:hover {
-  background-color: #005f3a;
-}
-
-/* Popup overlay */
-.popup-overlay {
-  display: none; /* hidden by default */
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.7);
-  justify-content: center;
-  align-items: center;
-  z-index: 9999;
-}
-
-/* Popup content box */
-.popup-content {
-  background: white;
-  padding: 30px;
-  border-radius: 8px;
-  width: 90%;
-  max-width: 400px;
-  text-align: left;
-  position: relative;
-}
-
-.popup-content h2, .popup-content h3 {
-  color: #007f4d;
-}
-
-.popup-content ul {
-  padding-left: 20px;
-}
-
-.close-btn {
-  position: absolute;
-  top: 10px;
-  right: 15px;
-  font-size: 24px;
-  color: #333;
-  cursor: pointer;
-}
-
-
-    .contact-section {
+     .contact-section {
       max-width: 900px;
       margin: 40px auto;
       padding: 0 20px;
@@ -1180,10 +957,30 @@ button#openPopup:hover {
       border: 0;
       border-radius: 8px;
     }
+    .hamburger {
+  display: none;
+  font-size: 24px;
+  cursor: pointer;
+  margin-left: auto;
+}
 
-    @media (max-width: 700px) {
-      .contact-grid {
-        flex-direction: column;
-      }
-    }
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    right: 20px;
+    top: 60px;
+    background: #111;
+    width: 200px;
+    padding: 10px;
+  }
 
+  .nav-links.active {
+    display: flex;
+  }
+
+  .hamburger {
+    display: block;
+  }
+}
